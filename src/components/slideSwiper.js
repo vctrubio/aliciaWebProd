@@ -82,6 +82,7 @@ export const SlideSwiper = ({ imgs }) => {
               <GatsbyImage
                 image={getImage(img)}
                 alt={`Slide ${index}`}
+                lazy={true}
                 style={{
                   verticalAlign: 'baseline',
                   height: activeIndex === index ? '50vh' : '100%',
