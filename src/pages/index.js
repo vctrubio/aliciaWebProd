@@ -97,7 +97,8 @@ const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
         >
           Portfolio
         </div>
-        <div
+        {/* removing dropdown arrow */}
+        {/* <div
           style={{
             cursor: 'pointer',
             width: '25px',
@@ -110,7 +111,7 @@ const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
           }}
         >
           <img src={DrowDownSvg} alt="^" />
-        </div>
+        </div> */}
         {dropdownOpen && (<DropDownLinks />)}
       </div>
       <div onClick={() => setActiveComponent("info")}>Contact</div>
