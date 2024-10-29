@@ -123,7 +123,8 @@ const IndexPage = ({ data }) => {
   const [activeComponent, setActiveComponent] = useState("banner");
   const [contentfulTmp, setContentfulTmp] = useState(null);
 
-  const edges = data.allContentfulAliciaInterior.edges
+  // Get the ordered list from contentfulOrden's listado field
+  const edges = data.contentfulOrden.listado.map(item => ({ node: item }));
   const imgs = data.allContentfulAliHome.nodes.flatMap(node =>
     node.fotos
   );
@@ -145,9 +146,11 @@ export default IndexPage
 
 export const queryGL = graphql`
 query MyQuery {
-  allContentfulAliciaInterior {
-    edges {
-      node {
+  contentfulOrden(sort: {createdAt: DESC}, limit: 1) {
+    listado {
+      ... on ContentfulAliciaInterior {
+        id
+        title
         media {
           file {
             url
@@ -159,7 +162,6 @@ query MyQuery {
           description
         }
         url
-        title
       }
     }
   }
