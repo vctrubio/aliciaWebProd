@@ -123,8 +123,8 @@ const IndexPage = ({ data }) => {
   const [activeComponent, setActiveComponent] = useState("banner");
   const [contentfulTmp, setContentfulTmp] = useState(null);
 
-  // Get the ordered list from contentfulOrden's listado field
-  const edges = data.contentfulOrden.listado.map(item => ({ node: item }));
+  // Get the ordered list from the first (most recent) Orden entry
+  const edges = data.allContentfulOrden.nodes[0].listado.map(item => ({ node: item }));
   const imgs = data.allContentfulAliHome.nodes.flatMap(node =>
     node.fotos
   );
@@ -146,22 +146,24 @@ export default IndexPage
 
 export const queryGL = graphql`
 query MyQuery {
-  contentfulOrden(sort: {createdAt: DESC}, limit: 1) {
-    listado {
-      ... on ContentfulAliciaInterior {
-        id
-        title
-        media {
-          file {
-            url
+  allContentfulOrden(sort: {createdAt: DESC}, limit: 1) {
+    nodes {
+      listado {
+        ... on ContentfulAliciaInterior {
+          id
+          title
+          media {
+            file {
+              url
+            }
+            gatsbyImageData
           }
-          gatsbyImageData
+          credits
+          description {
+            description
+          }
+          url
         }
-        credits
-        description {
-          description
-        }
-        url
       }
     }
   }
