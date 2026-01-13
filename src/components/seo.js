@@ -89,3 +89,5 @@ function Seo({ description, title, image, pathname, children }) {
     </Helmet>
   )
 }
+
+export default Seo
