@@ -1,6 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { navigate } from "gatsby";
+import logo from "../images/logoAA.webp";
 
 export const LogoBar = () => {
     const handleClick = () => {
@@ -9,17 +9,16 @@ export const LogoBar = () => {
   
     return (
       <div className="d-flex justify-content-around" onClick={handleClick} style={{width: '100%'}}>
-        <StaticImage
-          src="../images/logoAA.webp"
-          loading="eager"
-          placeholder="blurred"
-          quality={100}
-          formats={["auto", "webp"]}
+        <img
+          src={logo}
           alt="Alicia Agosti Interiorismo"
+          width="420"
+          height="auto" // Maintain aspect ratio
           style={{
             width: '300px',
             marginTop: '2em',
             transform: 'scale(1.4)',
+            cursor: 'pointer' // Added since it has a click handler
           }}
         />
       </div>

@@ -6,6 +6,7 @@ import { LogoBar } from "../components/logobar";
 import { Banner } from "../components/banner";
 import { SlideSwiper } from "../components/slideSwiper"
 import { NavBar } from '../components/navbar';
+import { FadeInSection } from '../components/fadeInSection';
 
 const EstudioPage = ({ data }) => {
   const allNodes = data.allContentfulAliciaInterior.nodes;
@@ -17,7 +18,9 @@ const EstudioPage = ({ data }) => {
     <div style={{ textAlign: 'center', width: '100%', margin: '0 !important', overflow: 'hidden' }}>
       <LogoBar />
       <NavBar activePage="estudio" nodes={allNodes} />
-      <SlideSwiper imgs={imgs} />
+      <div className="fade-in-load">
+        <SlideSwiper imgs={imgs} />
+      </div>
       <Banner />
     </div>
   )

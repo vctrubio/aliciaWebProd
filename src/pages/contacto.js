@@ -13,7 +13,9 @@ const ContactoPage = ({ data }) => {
     <div style={{ textAlign: 'center', width: '100%', margin: '0 !important', overflow: 'hidden' }}>
       <LogoBar />
       <NavBar activePage="contacto" nodes={allNodes} />
-      <Info />
+      <div className="fade-in-load">
+        <Info />
+      </div>
     </div>
   )
 }

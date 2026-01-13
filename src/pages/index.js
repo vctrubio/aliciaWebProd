@@ -17,7 +17,9 @@ const IndexPage = ({ data }) => {
     <div style={{ textAlign: 'center', width: '100%', margin: '0 !important', overflow: 'hidden' }}>
       <LogoBar />
       <NavBar activePage="estudio" nodes={allNodes} />
-      <SlideSwiper imgs={imgs} />
+      <div className="fade-in-load">
+        <SlideSwiper imgs={imgs} />
+      </div>
       <Banner />
     </div>
   )

@@ -15,7 +15,9 @@ const ProyectosPage = ({ data }) => {
     <div style={{ textAlign: 'center', width: '100%', margin: '0 !important', overflow: 'hidden' }}>
       <LogoBar />
       <NavBar activePage="proyectos" nodes={allNodes} />
-      <PortfolioAll edges={edges} />
+      <div className="fade-in-load">
+        <PortfolioAll edges={edges} />
+      </div>
     </div>
   )
 }
