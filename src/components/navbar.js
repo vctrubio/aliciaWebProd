@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, navigate } from "gatsby";
 import { slugify } from "../utils/slugify";
 
-export const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
+export const NavBar = ({ activePage, nodes = [] }) => { // Default nodes to empty array
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -23,15 +23,6 @@ export const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
     setDropdownOpen(false)
     const slug = slugify(item.originalTitle)
     navigate(`/proyectos/${slug}`)
-  }
-
-  const handleNavClick = (component) => {
-    if (setActiveComponent) {
-      setActiveComponent(component);
-      if (setContentfulTmp) setContentfulTmp(null);
-    } else {
-      navigate('/', { state: { activeComponent: component } });
-    }
   }
 
   const DropDownLinks = () => {
@@ -79,17 +70,28 @@ export const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
     )
   }
 
+  // Helper to determine style
+  const linkStyle = (pageName) => ({
+    textDecoration: 'none',
+    color: activePage === pageName ? 'black' : 'inherit',
+    fontWeight: activePage === pageName ? 'bold' : 'normal',
+  });
+
   return (
     <div className="navbar">
-      <div onClick={() => handleNavClick("banner")}>Estudio</div>
+      <div>
+        <Link to="/estudio" style={linkStyle('estudio')}>Estudio</Link>
+      </div>
       <div
         style={{ alignItems: 'center', position: 'relative', marginLeft: '25px' }}>
-        <div onClick={() => handleNavClick("portfolio")}>
-          Proyectos
+        <div>
+           <Link to="/proyectos" style={linkStyle('proyectos')}>Proyectos</Link>
         </div>
         {dropdownOpen && (<DropDownLinks />)}
       </div>
-      <div onClick={() => handleNavClick("info")}>Contacto</div>
+      <div>
+        <Link to="/contacto" style={linkStyle('contacto')}>Contacto</Link>
+      </div>
     </div>
   )
 }

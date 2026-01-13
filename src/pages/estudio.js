@@ -7,7 +7,7 @@ import { Banner } from "../components/banner";
 import { SlideSwiper } from "../components/slideSwiper"
 import { NavBar } from '../components/navbar';
 
-const IndexPage = ({ data }) => {
+const EstudioPage = ({ data }) => {
   const allNodes = data.allContentfulAliciaInterior.nodes;
   const imgs = data.allContentfulAliHome.nodes.flatMap(node =>
     node.fotos
@@ -23,11 +23,11 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export const Head = () => <Seo title="Alicia Agosti Interiorismo" />
-export default IndexPage
+export const Head = () => <Seo title="Alicia Agosti | Estudio" />
+export default EstudioPage
 
 export const query = graphql`
-query IndexQuery {
+query EstudioQuery {
   allContentfulAliciaInterior {
     nodes {
       id

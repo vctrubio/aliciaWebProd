@@ -8,7 +8,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet";
 
-function Seo({ description, title, children }) {
+function Seo({ description, title, image, children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -44,7 +44,9 @@ function Seo({ description, title, children }) {
     "Alicia Agosti"
   ];
 
-  const imageUrl = `${process.env.PUBLIC_URL}/images/alilogo.png`;
+  // const imageUrl = `${process.env.PUBLIC_URL}/images/alilogo.png`;
+  // Use provided image or fallback to logo (ensure absolute URL if possible or relative)
+  const metaImage = image || `https://aliciaagosti.com/src/images/alilogo.png`; 
 
   return (
     <Helmet>
@@ -71,15 +73,16 @@ function Seo({ description, title, children }) {
       <meta name="coverage" content="Madrid" />
       <meta name="abstract" content="Estudio de interiorismo y arquitectura de interiores." />
       <meta name="author" content="Alicia Agosti" />
-      <meta property="image" content={imageUrl} />
+      <meta property="image" content={metaImage} />
       <meta name="keywords" content={keywords.join(', ')} />
       <meta property="og:title" content={title} />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image" content={metaImage} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
       <meta name="twitter:title" content={title} />
+      <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />
       {children}
     </Helmet>

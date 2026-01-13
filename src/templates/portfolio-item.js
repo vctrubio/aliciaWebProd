@@ -14,7 +14,7 @@ const PortfolioItemTemplate = ({ data }) => {
   return (
     <div style={{ textAlign: 'center', width: '100%', margin: '0 !important', overflow: 'hidden' }}>
       <LogoBar />
-      <NavBar nodes={edges} />
+      <NavBar activePage="proyectos" nodes={edges} />
       
       <div className="container text-center mt-2">
         <div style={{ marginTop: '2em' }}>
@@ -67,7 +67,24 @@ const PortfolioItemTemplate = ({ data }) => {
   )
 }
 
-export const Head = ({ data }) => <Seo title={data.contentfulAliciaInterior.title} />
+export const Head = ({ data }) => {
+  const node = data.contentfulAliciaInterior
+  const description = node.description?.description 
+    ? (node.description.description.length > 150 
+        ? node.description.description.substring(0, 150) + "..." 
+        : node.description.description)
+    : null
+  
+  const image = node.media?.[0]?.file?.url ? `https:${node.media[0].file.url}` : null
+
+  return (
+    <Seo 
+      title={node.title} 
+      description={description}
+      image={image}
+    />
+  )
+}
 
 export default PortfolioItemTemplate
 
@@ -80,6 +97,9 @@ export const query = graphql`
         description
       }
       media {
+        file {
+          url
+        }
         gatsbyImageData(
           placeholder: BLURRED
           formats: [AUTO, WEBP, AVIF]
