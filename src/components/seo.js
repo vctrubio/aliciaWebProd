@@ -8,7 +8,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet";
 
-function Seo({ description, title, image, children }) {
+function Seo({ description, title, image, pathname, children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -17,6 +17,7 @@ function Seo({ description, title, image, children }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -24,7 +25,10 @@ function Seo({ description, title, image, children }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  // const defaultTitle = site.siteMetadata?.title
+  const siteUrl = site.siteMetadata.siteUrl
+  const seoUrl = pathname ? `${siteUrl}${pathname}` : siteUrl
+  // Use provided image or fallback to generated icon
+  const metaImage = image || `${siteUrl}/icons/icon-512x512.png`;
 
   const keywords = [
     "Interiorismo",
@@ -44,10 +48,6 @@ function Seo({ description, title, image, children }) {
     "Alicia Agosti"
   ];
 
-  // const imageUrl = `${process.env.PUBLIC_URL}/images/alilogo.png`;
-  // Use provided image or fallback to logo (ensure absolute URL if possible or relative)
-  const metaImage = image || `https://aliciaagosti.com/src/images/alilogo.png`; 
-
   return (
     <Helmet>
       <script type="application/ld+json">
@@ -55,7 +55,7 @@ function Seo({ description, title, image, children }) {
         {
           "@context": "http://schema.org",
           "@type": "Person",
-          "url": "https://aliciaagosti.com",
+          "url": "${siteUrl}",
           "name": "Alicia Agosti Interiorismo",
           "contactPoint": {
             "@type": "Alicia Agosti",
@@ -76,6 +76,7 @@ function Seo({ description, title, image, children }) {
       <meta property="image" content={metaImage} />
       <meta name="keywords" content={keywords.join(', ')} />
       <meta property="og:title" content={title} />
+      <meta property="og:url" content={seoUrl} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
@@ -88,5 +89,3 @@ function Seo({ description, title, image, children }) {
     </Helmet>
   )
 }
-
-export default Seo

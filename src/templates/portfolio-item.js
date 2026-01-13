@@ -67,7 +67,7 @@ const PortfolioItemTemplate = ({ data }) => {
   )
 }
 
-export const Head = ({ data }) => {
+export const Head = ({ data, location }) => {
   const node = data.contentfulAliciaInterior
   const description = node.description?.description 
     ? (node.description.description.length > 150 
@@ -75,13 +75,15 @@ export const Head = ({ data }) => {
         : node.description.description)
     : null
   
-  const image = node.media?.[0]?.file?.url ? `https:${node.media[0].file.url}` : null
+  // Resize image for Open Graph (1200x630 is standard)
+  const image = node.media?.[0]?.file?.url ? `https:${node.media[0].file.url}?w=1200&h=630&fit=fill` : null
 
   return (
     <Seo 
       title={node.title} 
       description={description}
       image={image}
+      pathname={location.pathname}
     />
   )
 }
