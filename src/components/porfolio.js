@@ -16,7 +16,7 @@ export const PortfolioAll = ({ edges }) => {
       return (
         edges.length > 0 ?
           edges.map(({ node }) => (
-            <Link key={node.id} to={`/portfolio/${slugify(node.title)}`}>
+            <Link key={node.id} to={`/proyectos/${slugify(node.title)}`}>
               <Card
                 title={<div className={getTitleOpacity()}>{node.title}</div>}
                 coverImageData={node.media[0].gatsbyImageData}

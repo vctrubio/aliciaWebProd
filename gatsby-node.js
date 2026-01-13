@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   items.forEach(node => {
     const slug = slugify(node.title)
     createPage({
-      path: `/portfolio/${slug}`,
+      path: `/proyectos/${slug}`,
       component: portfolioTemplate,
       context: {
         id: node.id,

@@ -22,7 +22,7 @@ export const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
   const getCardbyItem = (item) => {
     setDropdownOpen(false)
     const slug = slugify(item.originalTitle)
-    navigate(`/portfolio/${slug}`)
+    navigate(`/proyectos/${slug}`)
   }
 
   const handleNavClick = (component) => {
@@ -81,15 +81,15 @@ export const NavBar = ({ setActiveComponent, nodes, setContentfulTmp }) => {
 
   return (
     <div className="navbar">
-      <div onClick={() => handleNavClick("banner")}>About</div>
+      <div onClick={() => handleNavClick("banner")}>Estudio</div>
       <div
         style={{ alignItems: 'center', position: 'relative', marginLeft: '25px' }}>
         <div onClick={() => handleNavClick("portfolio")}>
-          Portfolio
+          Proyectos
         </div>
         {dropdownOpen && (<DropDownLinks />)}
       </div>
-      <div onClick={() => handleNavClick("info")}>Contact</div>
+      <div onClick={() => handleNavClick("info")}>Contacto</div>
     </div>
   )
 }
