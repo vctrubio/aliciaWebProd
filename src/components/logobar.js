@@ -1,12 +1,13 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { navigate } from "gatsby";
 
 export const LogoBar = ({ setActiveComponent }) => {
     const handleClick = () => {
       if (setActiveComponent) {
         setActiveComponent("banner");
       } else {
-        window.location.href = '/';
+        navigate('/');
       }
     };
   

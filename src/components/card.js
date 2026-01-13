@@ -1,25 +1,15 @@
 import * as React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import './card_portfolio.css';
 
-export const Card = ({ title, coverUrl }) => {
+export const Card = ({ title, coverImageData }) => {
     return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '400px',
-                height: '360px',
-                margin: '20px',
-                cursor: 'pointer',
-                backgroundImage: `url(${coverUrl})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                // backgroundColor: 'F7F1EE',
-            }}
-            className="card-portfolio"
-        >
+        <div className="card-portfolio">
+            <GatsbyImage 
+                image={coverImageData} 
+                alt={typeof title === 'string' ? title : "Portfolio image"}
+                className="card-image"
+            />
             <div className="card-portfolio-opacity"></div>
             <div id='card-title'>{title}</div>
         </div>

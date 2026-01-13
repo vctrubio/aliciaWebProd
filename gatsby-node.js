@@ -1,56 +1,48 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require(`path`)
 
-const { graphql } = require('gatsby')
+const slugify = text =>
+  text
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '')
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio-item.js`)
+
   const result = await graphql(`
-  query MyQuery {
-    allContentfulAliciaInterior {
-      edges {
-        node {
-          media {
-            file {
-              url
-            }
-            gatsbyImageData
-          }
-          credits
-          description {
-            description
-          }
-          url
+    {
+      allContentfulAliciaInterior {
+        nodes {
+          id
           title
         }
       }
     }
-  }
   `)
 
   if (result.errors) {
-    console.log('error: please check exports.createPage, ', result.errors)
-    throw new Error(result.errors)
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
   }
 
+  const items = result.nodes || result.data.allContentfulAliciaInterior.nodes
 
-  result.data?.allContentfulAliciaInterior.edges.forEach(({ node }) => {
-    // console.log('url:::: ', node.url)
+  items.forEach(node => {
+    const slug = slugify(node.title)
     createPage({
-      path: `/${node.url}`,
-      component: require.resolve("./src/pages/contentful.js"),
+      path: `/portfolio/${slug}`,
+      component: portfolioTemplate,
       context: {
-        url: node.url,
+        id: node.id,
       },
-      defer: true,
     })
   })
 }
