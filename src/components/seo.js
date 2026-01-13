@@ -6,7 +6,6 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Helmet } from "react-helmet";
 
 function Seo({ description, title, image, pathname, children }) {
   const { site } = useStaticQuery(
@@ -49,7 +48,7 @@ function Seo({ description, title, image, pathname, children }) {
   ];
 
   return (
-    <Helmet>
+    <>
       <script type="application/ld+json">
         {`
         {
@@ -86,7 +85,7 @@ function Seo({ description, title, image, pathname, children }) {
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />
       {children}
-    </Helmet>
+    </>
   )
 }
 
