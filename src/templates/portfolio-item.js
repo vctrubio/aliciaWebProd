@@ -26,7 +26,7 @@ const PortfolioItemTemplate = ({ data, location }) => {
     shareUrl
   )}`
   const whatsappInquiryUrl = `https://api.whatsapp.com/send?phone=34630199112&text=${encodeURIComponent(
-    `Hola, estoy interesad@ en vustro servicios.`
+    `Hola, estoy interesad@ en vuestro servicios.`
   )}`
 
   return (
