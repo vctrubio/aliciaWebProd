@@ -7,7 +7,7 @@
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-const React = require('react');
+const React = require("react")
 
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `es` })
@@ -18,8 +18,5 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
     />,
     <meta key="theme-color" name="theme-color" content="#F7F1EE" />,
-
   ])
 }
-
-

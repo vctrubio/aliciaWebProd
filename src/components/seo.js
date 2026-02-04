@@ -27,7 +27,7 @@ function Seo({ description, title, image, pathname, children }) {
   const siteUrl = site.siteMetadata.siteUrl
   const seoUrl = pathname ? `${siteUrl}${pathname}` : siteUrl
   // Use provided image or fallback to generated icon
-  const metaImage = image || `${siteUrl}/icons/icon-512x512.png`;
+  const metaImage = image || `${siteUrl}/icons/icon-512x512.png`
 
   const keywords = [
     "Interiorismo",
@@ -44,8 +44,8 @@ function Seo({ description, title, image, pathname, children }) {
     "Diseño de contract",
     "Interiorismo de viviendas",
     "Estudio de interiorismo",
-    "Alicia Agosti"
-  ];
+    "Alicia Agosti",
+  ]
 
   return (
     <>
@@ -66,14 +66,20 @@ function Seo({ description, title, image, pathname, children }) {
       </script>
       <title>{title}</title>
       <meta name="description" content={metaDescription} />
-      <meta name="subject" content="Interiorismo y Arquitectura de Interiores" />
+      <meta
+        name="subject"
+        content="Interiorismo y Arquitectura de Interiores"
+      />
       <meta name="topic" content="Diseño de Interiores y Reformas" />
       <meta name="category" content="Hogar y Decoración" />
       <meta name="coverage" content="Madrid" />
-      <meta name="abstract" content="Estudio de interiorismo y arquitectura de interiores." />
+      <meta
+        name="abstract"
+        content="Estudio de interiorismo y arquitectura de interiores."
+      />
       <meta name="author" content="Alicia Agosti" />
       <meta property="image" content={metaImage} />
-      <meta name="keywords" content={keywords.join(', ')} />
+      <meta name="keywords" content={keywords.join(", ")} />
       <meta property="og:title" content={title} />
       <meta property="og:url" content={seoUrl} />
       <meta property="og:image" content={metaImage} />

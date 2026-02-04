@@ -1,37 +1,39 @@
 .info {
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    gap: 5em;
-    margin-left: 6em;
-    align-items: center;
-    margin-bottom: 8em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5em;
+  margin-left: 6em;
+  align-items: center;
+  margin-bottom: 8em;
 }
 
-.info-icons{
-    align-self: flex-start;
-    >*{
-        text-align: center;
-        align-content: center;
-        >*>*{
-            text-align: center;
-            align-content: center;
-        }
-    }
-}
-
-form input, form select, form textarea {
+.info-icons {
+  align-self: flex-start;
+  > * {
     text-align: center;
+    align-content: center;
+    > * > * {
+      text-align: center;
+      align-content: center;
+    }
+  }
+}
+
+form input,
+form select,
+form textarea {
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-    .info {
-        flex-direction: column;
-        gap: 4em;
-        margin-left: 0em;
-    }
-    .info-icons{
-        flex-direction: column;
-        align-self: center;
-    }
+  .info {
+    flex-direction: column;
+    gap: 4em;
+    margin-left: 0em;
+  }
+  .info-icons {
+    flex-direction: column;
+    align-self: center;
+  }
 }

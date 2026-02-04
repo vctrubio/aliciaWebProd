@@ -8,7 +8,8 @@
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  --font-ali: normal normal normal 18px/1.75em cormorantgaramond-light, cormorantgaramond, 'cormorant garamond', serif;
+  --font-ali: normal normal normal 18px/1.75em cormorantgaramond-light,
+    cormorantgaramond, "cormorant garamond", serif;
   --font-lg: 18px;
   --font-md: 16px;
   --font-sm: 14px;
@@ -41,12 +42,12 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--color-text);
   font-family: sans-serif;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;
   /* background-color: #504540; */
-  background-color: #F7F1EE;
+  background-color: #f7f1ee;
 }
 
 a {
@@ -89,8 +90,7 @@ h1 {
   letter-spacing: -0.01em;
 }
 
-
-h1>b {
+h1 > b {
   color: var(--color-primary);
 }
 
@@ -184,8 +184,8 @@ ul li {
   padding-left: 0;
 }
 
-li>ol,
-li>ul {
+li > ol,
+li > ul {
   margin-bottom: calc(var(--space-4) / 2);
   margin-left: var(--space-4);
   margin-top: calc(var(--space-4) / 2);
@@ -203,7 +203,7 @@ p *:last-child {
   margin-bottom: 0;
 }
 
-li>p {
+li > p {
   margin-bottom: calc(var(--space-4) / 2);
 }
 

@@ -59,7 +59,7 @@
 /* Hover Effect: Dark -> Transparent */
 @media (min-width: 980px) {
   .card-portfolio:hover .card-portfolio-opacity {
-    background-color: #F7F1EE;
+    background-color: #f7f1ee;
   }
 }
 
@@ -69,11 +69,11 @@
     height: 300px;
     margin: 10px auto;
   }
-  
+
   #card-title {
     font-size: 28px;
   }
-  
+
   .card-portfolio-opacity {
     background-color: rgba(255, 255, 255, 0.6);
   }

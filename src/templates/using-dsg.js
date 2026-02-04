@@ -9,4 +9,4 @@ const UsingDsg = ({ pageContext }) => {
   )
 }
 
-export default UsingDsg;
+export default UsingDsg

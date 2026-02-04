@@ -40,7 +40,7 @@ module.exports = {
         background_color: `#F7F1EE`,
         theme_color: `#F7F1EE`,
         display: `minimal-ui`,
-        icon: `src/images/alilogo.png`
+        icon: `src/images/alilogo.png`,
       },
     },
     {
@@ -48,8 +48,7 @@ module.exports = {
       options: {
         spaceId: process.env.SPACE_ID,
         accessToken: process.env.ACCESS_TOKEN,
-
       },
-    }
+    },
   ],
 }
