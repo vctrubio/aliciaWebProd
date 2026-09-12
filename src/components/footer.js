@@ -5,7 +5,7 @@ import whatsappSVG from "../svgs/whatsapp-black.svg"
 import phoneSVG from "../svgs/phone-black.svg"
 import mailSVG from "../svgs/mail-black.svg"
 import instagramSVG from "../svgs/insta-black.svg"
-import logo from "../images/logo.webp"
+import logo from "../images/logoAA.webp"
 import "./footer.css"
 
 export const Footer = () => (
