@@ -7,6 +7,8 @@
 .seo-article-body h2 { font-size:clamp(2rem,4vw,3.35rem); line-height:1; margin:4.25rem 0 1.15rem; }
 .seo-article-body h3 { font-size:1.55rem; line-height:1.05; margin:2.25rem 0 .8rem; }
 .seo-article-body p,.seo-article-body li { color:#4e4742; font-size:1rem; line-height:1.8; }
+.seo-article-image { margin:2.4rem 0 3rem; }
+.seo-article-image img { display:block; height:auto; max-height:680px; object-fit:cover; width:100%; }
 .seo-article-body li+li { margin-top:.45rem; }
 .seo-article-body a { border-bottom:1px solid currentColor; color:inherit; text-decoration:none; }
 .seo-article-body .seo-article-cta { background:#24211f; border:0; color:#f7f1ee; display:inline-block; font-size:.78rem; letter-spacing:.08em; margin:1.2rem 0 .7rem; padding:1rem 1.35rem; text-decoration:none; text-transform:uppercase; }
