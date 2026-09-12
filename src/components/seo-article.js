@@ -9,7 +9,6 @@ export const SeoArticle = ({ title, intro, children }) => (
     <LogoBar />
     <NavBar />
     <header className="seo-article-hero">
-      <p>Guía de interiorismo · Madrid</p>
       <h1>{title}</h1>
       <div>{intro}</div>
     </header>
