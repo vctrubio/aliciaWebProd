@@ -33,6 +33,7 @@ export const SlideSwiper = ({ imgs = [] }) => {
               alt={`Proyecto de Alicia Agosti Interiorismo ${index + 1}`}
               loading={index === 0 ? "eager" : "lazy"}
               className={`home-carousel-image ${isActive ? "is-active" : "is-inactive"}`}
+              style={{ height: "100%", width: "100%" }}
               imgStyle={{ objectFit: "cover" }}
             />
           </SwiperSlide>

@@ -1,8 +1,9 @@
 .home-carousel-wrap { margin:0 auto 6rem; overflow:hidden; width:100%; }
 .home-carousel { height:clamp(360px,64vh,720px); margin:0 auto; width:85%; }
-.home-carousel .swiper-wrapper { align-items:center; }
-.home-carousel .swiper-slide { align-items:center; display:flex; height:100%; justify-content:center; }
-.home-carousel-image { height:100%; transition:opacity .35s ease,transform .35s ease; width:100%; }
+.home-carousel .swiper-wrapper { align-items:stretch; height:100%; }
+.home-carousel .swiper-slide { align-items:center; display:flex; height:100%; justify-content:center; overflow:hidden; }
+.home-carousel-image { display:block; height:100% !important; min-height:0; transition:opacity .35s ease,transform .35s ease; width:100% !important; }
+.home-carousel-image img { height:100% !important; object-fit:cover !important; width:100% !important; }
 .home-carousel-image.is-active { opacity:1; transform:scale(1); }
 .home-carousel-image.is-inactive { opacity:.35; transform:scale(.8); }
 
