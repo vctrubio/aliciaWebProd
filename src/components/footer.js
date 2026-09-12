@@ -17,12 +17,12 @@ export const Footer = () => {
       </a>
       <a
         href="https://www.instagram.com/alicia.agosti.interiorismo/"
-        taget="_black"
+        target="_blank"
         rel="noopener noreferrer"
       >
         <SVG src={instagramSVG} className="svg-icon" />
       </a>
-      <a href="mailto:estudio@aliciaagosti..com">
+      <a href="mailto:estudio@aliciaagosti.com">
         <SVG src={mailSVG} className="svg-icon" />
       </a>
     </footer>
